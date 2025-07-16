@@ -1,22 +1,21 @@
 name: Git Action Workflow
 
-# Order Trigger
-on: 
+on:
   push:
     branches:
       - main
 
 jobs:
   read_hello_file:
-    # Open Computer
     runs-on: ubuntu-latest
-    steps:
-      - name: Git Checkout 
-        uses: actions/checkout@v2
 
-      - name: Read and Print the hello.txt file
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Read and Print hello.txt
         run: |
-          echo "Contents of hello file: "
-          cat hello.txt
+          echo "Reading hello.txt..."
+          cat hello.txt || echo "hello.txt not found"
 
 
