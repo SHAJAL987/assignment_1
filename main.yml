@@ -1,0 +1,22 @@
+name: Git Action Workflow
+
+# Order Trigger
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  read_hello_file:
+    # Open Computer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout 
+        uses: actions/checkout@v2
+
+      - name: Read and Print the hello.txt file
+        run: |
+          echo "Contents of hello file: "
+          cat hello.txt
+
+
